@@ -35,8 +35,8 @@ const app = new Vue({
   },
   methods: {
     filter(item) {
-      const currentItem = item.genre.toLowerCase();
       if (this.selectGenre === "all") return true;
+      const currentItem = item.genre.toLowerCase();
       return currentItem === this.selectGenre;
     },
   },
