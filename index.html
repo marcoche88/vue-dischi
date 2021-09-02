@@ -22,7 +22,7 @@
     </header>
     <main class="container">
       <section id="album-container">
-        <div class="card" v-for="disc in discs">
+        <div class="card" v-for="disc in sortedDiscs">
           <img :src="disc.poster" alt="New Jersey" />
           <h2 class="title">{{ disc.title }}</h2>
           <address class="author">{{ disc.author }}</address>

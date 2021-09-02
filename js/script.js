@@ -18,6 +18,11 @@ const app = new Vue({
   data: {
     discs: [],
   },
+  computed: {
+    sortedDiscs() {
+      return this.discs.sort((a, b) => { return a.year - b.year });
+    },
+  },
   methods: {},
   created() {
     axios
