@@ -17,13 +17,29 @@ const app = new Vue({
   el: '#app',
   data: {
     discs: [],
+    selectGenre: "all",
   },
   computed: {
     sortedDiscs() {
       return this.discs.sort((a, b) => { return a.year - b.year });
     },
+    filteredGenre() {
+      const filteredArr = [];
+      this.discs.forEach((disc) => {
+        if (!filteredArr.includes(disc.genre)) {
+          filteredArr.push(disc.genre);
+        }
+      });
+      return filteredArr;
+    },
   },
-  methods: {},
+  methods: {
+    filter(item) {
+      const currentItem = item.genre.toLowerCase();
+      if (this.selectGenre === "all") return true;
+      return currentItem === this.selectGenre;
+    },
+  },
   created() {
     axios
       .get("https://flynn.boolean.careers/exercises/api/array/music")
