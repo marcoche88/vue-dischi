@@ -32,14 +32,12 @@ const app = new Vue({
       });
       return filteredArr;
     },
+    filteredDiscs() {
+      if (this.selectGenre === "all") return this.sortedDiscs;
+      return this.sortedDiscs.filter((disc) => disc.genre.toLowerCase() === this.selectGenre);
+    }
   },
-  methods: {
-    filter(item) {
-      if (this.selectGenre === "all") return true;
-      const currentItem = item.genre.toLowerCase();
-      return currentItem === this.selectGenre;
-    },
-  },
+  methods: {},
   created() {
     axios
       .get("https://flynn.boolean.careers/exercises/api/array/music")

@@ -30,11 +30,11 @@
     </header>
     <main class="container">
       <section id="album-container">
-        <div class="card" v-for="disc in sortedDiscs" v-if="filter(disc)">
-          <img :src="disc.poster" alt="New Jersey" />
+        <div class="card" v-for="disc in filteredDiscs">
+          <img :src="disc.poster" :alt="disc.title" />
           <h2 class="title">{{ disc.title }}</h2>
           <address class="author">{{ disc.author }}</address>
-          <time datetime="1988" class="year">{{ disc.year }}</time>
+          <time :datetime="disc.year" class="year">{{ disc.year }}</time>
         </div>
       </section>
     </main>
